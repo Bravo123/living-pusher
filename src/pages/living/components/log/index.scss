@@ -1,0 +1,26 @@
+
+
+.log-wrapper {
+  position: fixed;
+  background: rgba(0 ,0 ,0, .3);
+  overflow: scroll;
+}
+
+.vertical {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 100rpx);
+}
+
+.horizontal {
+  top: 0;
+  left: 100rpx;
+  width: calc(100% - 100rpx);
+  height: 100%;
+}
+
+.text {
+  color: #fff;
+  font-size: 24rpx;
+}

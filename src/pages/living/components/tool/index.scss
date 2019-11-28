@@ -1,0 +1,47 @@
+.tool {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.horizontal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100%;
+
+  .tool-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(90deg);
+    margin-bottom: 20px;
+  }
+}
+
+.vertical {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 100rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+
+  .tool-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+}
+
+.text {
+  white-space: nowrap;
+  font-size: 24px;
+}
