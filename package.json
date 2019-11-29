@@ -9,7 +9,6 @@
     "css": "sass"
   },
   "scripts": {
-    "commit": "git-cz",
     "build:weapp": "taro build --type weapp",
     "build:swan": "taro build --type swan",
     "build:alipay": "taro build --type alipay",
