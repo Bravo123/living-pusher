@@ -17,7 +17,7 @@ const initialState = {
   isMute: false,
   isLog: false,
   enableCamera: true,
-  statusList:  [] as String[],
+  statusList: [] as String[],
   mode: '' as 'SD' | 'HD' | 'FHD',
   orientation: '' as 'vertical' | 'horizontal',
 };
@@ -67,18 +67,22 @@ export default class Temp extends Component {
     })
   }
 
-  componentWillUnmount() { 
+  componentWillUnmount() {
     this.setState({
       statusList: []
     })
   }
 
-  componentDidShow() { }
+  componentDidShow() {
+    Taro.setKeepScreenOn({
+      keepScreenOn: true
+    });
+  }
 
   componentDidHide() { }
 
   stateChange(e) {
-    const { statusList } = {...this.state}
+    const { statusList } = { ...this.state }
     statusList.push(e.detail.message)
     this.setState({
       statusList,
@@ -113,27 +117,27 @@ export default class Temp extends Component {
   render() {
     const { rtmp, livePusherContext, enableCamera, isBeauty, isMute, isLog, mode, orientation, statusList } = this.state
     return (
-      <View className="container">
+      <View className='container'>
         <LivePusher
-          className="live-pusher"
+          className='live-pusher'
           url={rtmp || ''}
-          waitingImage="https://314live.image.alimmdn.com/5/1/157138508422.png"
+          waitingImage='https://314live.image.alimmdn.com/5/1/157138508422.png'
           mode={mode}
           orientation={orientation}
           autopush
           enableCamera={enableCamera}
           beauty={isBeauty ? 9 : 0}
           muted={isMute}
-          onStateChange={e => {this.stateChange(e)}}
+          onStateChange={e => { this.stateChange(e) }}
         />
-        <Tool 
-          rtmp={rtmp} 
+        <Tool
+          rtmp={rtmp}
           orientation={orientation}
-          livePusherContext={livePusherContext} 
-          toggleBeauty={() => {this.toggleBeauty()}} 
-          toggleLog={() => {this.toggleLog()}} 
-          toggleMute={() => {this.toggleMute()}}
-          toggleCamera={() => {this.toggleCamera()}} 
+          livePusherContext={livePusherContext}
+          toggleBeauty={() => { this.toggleBeauty() }}
+          toggleLog={() => { this.toggleLog() }}
+          toggleMute={() => { this.toggleMute() }}
+          toggleCamera={() => { this.toggleCamera() }}
         />
         {isLog && <Log orientation={orientation} LogList={statusList} />}
       </View>
